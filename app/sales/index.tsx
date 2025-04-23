@@ -1,5 +1,5 @@
 const Sales = () => {
-  return <h1>Sales</h1>;
+  return <h1 className="text-lg text-black">Sales</h1>;
 };
 
 export default Sales;
