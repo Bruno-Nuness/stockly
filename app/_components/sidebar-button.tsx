@@ -10,7 +10,9 @@ interface SidebarButtonProps {
 }
 
 const SidebarButton = ({ href, children }: SidebarButtonProps) => {
+
   const pathname = usePathname();
+  
   return (
     <Button
       variant={pathname === href ? "secondary" : "ghost"}
