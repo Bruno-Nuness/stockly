@@ -1,4 +1,4 @@
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 
 declare global {
   var cachedPrisma: ReturnType<typeof createPrismaClient>;
@@ -8,7 +8,7 @@ const createPrismaClient = () => {
   return new PrismaClient().$extends({
     result: {
       product: {
-        statys: {
+        status: {
           needs: { stock: true },
           compute(product) {
             if (product.stock <= 0) {
@@ -21,7 +21,7 @@ const createPrismaClient = () => {
     },
   });
 };
-//PROCURAR PRISMA COMPUTED FIELD
+
 let prisma: ReturnType<typeof createPrismaClient>;
 if (process.env.NODE_ENV === "production") {
   prisma = createPrismaClient();
